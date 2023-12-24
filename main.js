@@ -28,47 +28,52 @@ if(eleccion == "si"){
 } else if (eleccion == "no" ){
 alert("Gracias por venir, vuelva prontos.")
 };
-
-while(eleccion != "no"){
-    let prenda = prompt("agrega una prenda a tu carrito")
-    let precio = 0
-
-    if(prenda == "remera" || prenda == "camisa" || prenda == "chaleco" || prenda == "jean" || prenda == "jogging"){
-        switch (prenda) {
-            case "remera":
-                precio = 800;
+function agregarPrendas(){
+    while(eleccion != "no"){
+        let prenda = prompt("agrega una prenda a tu carrito")
+        let precio = 0
+    
+        if(prenda == "remera" || prenda == "camisa" || prenda == "chaleco" || prenda == "jean" || prenda == "jogging"){
+            switch (prenda) {
+                case "remera":
+                    precio = 800;
+                    break;
+                case "camisa":
+                    precio = 300;
+                    break;
+                case "chaleco":
+                    precio = 1600;
+                    break;
+                case "jean":
+                    precio = 900;
+                    break;
+                case "jogging":
+                    precio = 600;
+                    break;
+                default:
                 break;
-            case "camisa":
-                precio = 300;
-                break;
-            case "chaleco":
-                precio = 1600;
-                break;
-            case "jean":
-                precio = 900;
-                break;
-            case "jogging":
-                precio = 600;
-                break;
-            default:
-            break;
+            }
+        let unidades = parseInt(prompt("Cuantas unidades quiere llevar?"))
+    
+        carrito.push({prenda, unidades, precio})
+        console.log(carrito)
+        } else{
+            alert("no tenemos esa prenda")
         }
-    let unidades = parseInt(prompt("Cuantas unidades quiere llevar?"))
-
-    carrito.push({prenda, unidades, precio})
-    console.log(carrito)
-    } else{
-        alert("no tenemos esa prenda")
+    
+        eleccion = prompt("desea seguir comprando?")
+    
+        while (eleccion === "no"){
+            alert("Gracias por su compra, vuelva prontos.")
+            carrito.forEach((carritoFinal) => {
+                console.log(`prenda: ${carritoFinal.prenda}, unidades: ${carritoFinal.unidades}, precio total a pagar por prenda: $${carritoFinal.unidades * carritoFinal.precio}`)
+                alert(`precio total a pagar por su compra de sus ${carritoFinal.prenda}: $${carritoFinal.unidades * carritoFinal.precio}`)
+            })
+            break;
+        } 
     }
-
-    eleccion = prompt("desea seguir comprando?")
-
-    while (eleccion === "no"){
-        alert("Gracias por su compra, vuelva prontos.")
-        carrito.forEach((carritoFinal) => {
-            console.log(`prenda: ${carritoFinal.prenda}, unidades: ${carritoFinal.unidades}, precio total a pagar por prenda: $${carritoFinal.unidades * carritoFinal.precio}`)
-        })
-        break;
-    } 
 }
+
+agregarPrendas();
+
 
