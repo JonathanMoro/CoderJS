@@ -2,7 +2,7 @@
 /* OBJETOS, ARRAYS, METODOS DE ARRAYS, */
 
 
-
+/* 
 const listaPrendas = [
     {nombre: "remera", precio: 800, marca: "adidas" },
     {nombre: "camisa", precio: 300, marca: "pepito" },
@@ -77,3 +77,28 @@ function agregarPrendas(){
 agregarPrendas();
 
 
+ */
+
+
+
+
+const listaPrendas = [
+    {id:"1", nombre: "remera", precio: 800, marca: "adidas" },
+    {id:"2", nombre: "camisa", precio: 300, marca: "pepito" },
+    {id:"3", nombre: "chaleco", precio: 1600, marca: "moncler" },
+    {id:"4", nombre: "jean", precio: 900, marca: "gucci" },
+    {id:"5", nombre: "jogging", precio: 600, marca: "puma" },
+];
+const carrito = []
+
+listaPrendas.forEach(Producto=>{
+    let div = document.createElement("div");
+    div.innerHTML = `
+        <h3>Producto: ${Producto.id}</h3> 
+        <p>Nombre: ${Producto.nombre}</p>   
+        <b>Precio: $${Producto.precio}</b>
+        <button id="boton${Producto.id}">Agregar a carrito</button>
+    `;
+    
+    document.body.append(div);
+});
